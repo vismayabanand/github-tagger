@@ -13,4 +13,5 @@ __pycache__/
 # Data artifacts
 data/*.csv
 data/*.parquet
+info/info.txt
 EOF

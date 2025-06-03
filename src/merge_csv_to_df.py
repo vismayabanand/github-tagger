@@ -16,10 +16,10 @@ OUT_PATH = "data/all_repos_raw.parquet"
 
 paths = glob.glob(RAW_GLOB)
 if not paths:
-    raise SystemExit("❌  No CSVs found in data/*.csv – run scraper first.")
+    raise SystemExit("No CSVs found in data/*.csv – run scraper first.")
 
 print(f"Merging {len(paths)} files …")
 df = pd.concat((pd.read_csv(p) for p in paths), ignore_index=True)
 os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
 df.to_parquet(OUT_PATH, index=False)
-print(f"✅  Saved {len(df):,} rows → {OUT_PATH}")
+print(f"Saved {len(df):,} rows → {OUT_PATH}")
